@@ -45,15 +45,6 @@
                 </div>
 
                 <div class="card">
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                      <ul>
-                        @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                        @endforeach
-                      </ul>
-                    </div>
-                  @endif
                     <form  action="{{ route('admin.password.update') }}" method="post" class="needs-validation">
                       @csrf
                       <div class="card-header">
@@ -63,19 +54,19 @@
                           <div class="row">                               
                             <div class="form-group col-md-12 col-12">
                               <label>Current Password</label>
-                              <input type="password" class="form-control" name="current_password" required>
+                              <input type="password" class="form-control" name="current_password">
                             </div>
                           </div>
                           <div class="row">
                             <div class="form-group col-md-12 col-12">
                                 <label>New Password</label>
-                                <input type="password" class="form-control" name="password" required="">
+                                <input type="password" class="form-control" name="password">
                               </div>
                           </div>
                            <div class="row">
                             <div class="form-group col-md-12 col-12">
                                 <label>Caonfirm Password</label>
-                                <input type="password" class="form-control" name="password_confirmation" required="">
+                                <input type="password" class="form-control" name="password_confirmation">
                               </div>
                           </div>
                           
