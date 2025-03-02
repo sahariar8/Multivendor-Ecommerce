@@ -1,27 +1,55 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-    </div>
+@extends('frontend.layouts.master')
+@section('content')
 
-    <form method="POST" action="{{ route('password.confirm') }}">
-        @csrf
-
-        <!-- Password -->
-        <div>
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+   <section id="wsus__breadcrumb">
+        <div class="wsus_breadcrumb_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h4>forget password</h4>
+                        <ul>
+                            <li><a href="#">login</a></li>
+                            <li><a href="#">forget password</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
+    <!--============================
+        BREADCRUMB END
+    ==============================-->
 
-        <div class="flex justify-end mt-4">
-            <x-primary-button>
-                {{ __('Confirm') }}
-            </x-primary-button>
+
+    <!--============================
+        FORGET PASSWORD START
+    ==============================-->
+    <section id="wsus__login_register">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-5 m-auto">
+                    <div class="wsus__forget_area">
+                        <span class="qiestion_icon"><i class="fal fa-question-circle"></i></span>
+                        <h4>forget password ?</h4>
+                        <p>enter the email address to register with <span>e-shop</span></p>
+                        <div class="wsus__login">
+                            <form>
+                                <div class="wsus__login_input">
+                                    <i class="fal fa-envelope"></i>
+                                    <input type="password" placeholder="Your Email">
+                                </div>
+                                <button class="common_btn" type="submit">send</button>
+                            </form>
+                        </div>
+                        <a class="see_btn mt-4" href="login.html">go to login</a>
+                    </div>
+                </div>
+            </div>
         </div>
-    </form>
-</x-guest-layout>
+    </section>
+    <!--============================
+        FORGET PASSWORD END
+    ==============================-->
+
+
+@endsection

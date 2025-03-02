@@ -31,12 +31,15 @@ class AuthenticatedSessionController extends Controller
 
         if($request->user()->role == 'admin')
         {
+            toastr()->success('Admin Login Successful');
             return redirect()->intended('/admin/dashboard');
         }
         elseif($request->user()->role == 'vendor')
         {
+            toastr()->success('Vendor Login Successful');
             return redirect()->intended('/vendor/dashboard');
         }
+        toastr()->success('User Login Successful');
         return redirect()->intended(RouteServiceProvider::HOME);
     }
 
