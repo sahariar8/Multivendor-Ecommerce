@@ -3,6 +3,7 @@
 use App\Http\Controllers\Backend\AdminController;
 use App\Http\Controllers\Backend\VendorController;
 use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Frontend\UserProfileController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Route;
@@ -22,7 +23,10 @@ require __DIR__.'/auth.php';
 
 Route::get('admin/login',[AdminController::class,'login'])->name('admin.login');
 //user dashboard
-Route::group(['prefix'=>'user','as'=>'admin','middleware'=>['auth','verified']],function(){
+Route::group(['prefix'=>'user','as'=>'user.','middleware'=>['auth','verified']],function(){
     Route::get('dashboard',[UserDashboardController::class,'index'])->name('dashboard');
+    Route::get('profile',[UserProfileController::class,'index'])->name('profile');
+    Route::put('profile',[UserProfileController::class,'profileUpdate'])->name('profile.update');
+    Route::post('password',[UserProfileController::class,'passwordUpdate'])->name('password.update');
     
 });
